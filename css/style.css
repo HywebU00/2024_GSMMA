@@ -4203,7 +4203,7 @@ img {
     }
   }
   .header .navigation .navList {
-    margin: 1em 1em 1em 6.5%;
+    margin: 1em 1em 1em 8%;
   }
   @media screen and (max-width: 991px) {
     .header .navigation .navList {
@@ -8225,11 +8225,12 @@ img {
     left: 0;
     width: 100%;
     z-index: -1;
+    line-height: 0;
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
             clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
   }
   .main .banner img {
-    min-height: 300px;
+    min-height: 350px;
   }
   .main .sideBox {
     width: 230px;
@@ -9198,6 +9199,7 @@ img {
     margin-bottom: 90px;
     box-sizing: content-box;
     position: relative;
+    padding-top: 0;
   }
   .indexPage .contentBox .news .container {
     position: relative;
@@ -9499,6 +9501,7 @@ img {
     }
   }
   .indexPage .contentBox .theme .tabSet .tabContentGroup .tabContent {
+    padding: 0;
     box-shadow: none;
   }
   .indexPage .contentBox .theme .tabSet .content .title {

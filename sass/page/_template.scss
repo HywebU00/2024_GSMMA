@@ -66,10 +66,11 @@ body {
     left: 0;
     width: 100%;
     z-index: -1;
+    line-height: 0;
     clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
 
     img {
-      min-height: 300px;
+      min-height: 350px;
     }
   }
 

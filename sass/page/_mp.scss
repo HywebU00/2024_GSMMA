@@ -227,6 +227,8 @@
       margin-bottom: 90px;
       box-sizing: content-box;
       position: relative;
+      padding-top: 0;
+
 
       .container {
         position: relative;
@@ -555,6 +557,7 @@
           }
 
           .tabContent {
+            padding: 0;
             box-shadow: none;
           }
         }

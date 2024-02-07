@@ -1,0 +1,52 @@
+// 自動產生編號：https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters
+
+// 選項次層
+.submenu {
+
+  ul,
+  ol {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 1em 0;
+    list-style-type: none;
+    gap: 10px;
+  }
+
+  li {
+    width: calc((100% - 10px) / 2);
+
+    a {
+      border: 1px solid #ddd;
+      border-left: $colorSecondary 5px solid;
+      padding: 1em 1em 1em 2.5em;
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 100%;
+      box-sizing: border-box;
+      @include aSetting($colorWord);
+      transition: all 0.3s ease;
+
+      // @include textOverflow;
+      .num {
+        position: absolute;
+        width: 1em;
+        top: 1em;
+        left: 0.5em;
+        text-align: right;
+
+        &:after {
+          content: '.';
+        }
+      }
+
+      &:hover,
+      &:focus-visible {
+        border-color: $colorPrimary;
+        color: $aHover;
+      }
+    }
+  }
+}

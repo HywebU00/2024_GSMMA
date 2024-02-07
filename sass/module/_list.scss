@@ -1,0 +1,602 @@
+.lpTop {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid $colorPrimary;
+}
+
+.lpInfoBox {
+  margin: 0 0 20px;
+  background: #f1f1f1;
+  padding: 20px;
+
+  .list {
+    display: flex;
+    padding: 10px;
+
+    & + .list {
+      border-top: 1px solid #d5d5d5;
+    }
+
+    .label {
+      flex-shrink: 0;
+      font-weight: bold;
+      margin: 0 15px 0 0;
+      width: 100px;
+      text-align: right;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.lpPublications {
+  .control {
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .sort {
+      display: flex;
+      align-items: center;
+
+      p {
+        margin: 0;
+      }
+
+      select {
+        padding: 0.4em 24px 0.4em 0.5em;
+        margin: 0 0 0 10px;
+      }
+    }
+
+    .switchBox {
+      display: flex;
+      gap: 5px;
+
+      button {
+        padding: 0;
+        margin: 0;
+        padding: 10px;
+        background: #eee;
+        border: #ccc solid 1px;
+
+        &::before {
+          content: '';
+          width: 15px;
+          height: 15px;
+          display: block;
+          filter: invert(1);
+        }
+
+        &.list {
+          &::before {
+            background: url('../images/icon/icon_list.svg') no-repeat;
+          }
+        }
+
+        &.grid {
+          &::before {
+            background: url('../images/icon/icon_grid.svg') no-repeat;
+          }
+        }
+
+        &.active {
+          // background: $colorPrimary;
+          background: rgba(63, 47, 26, 0.7);
+
+          &::before {
+            filter: invert(0)
+          }
+        }
+      }
+    }
+  }
+
+  table {
+    td {
+      a {
+        @include aSetting($colorWord);
+      }
+
+      &.date {
+        text-align: center;
+        color: #666;
+
+        @include screen('mobile') {
+          text-align: left;
+        }
+      }
+
+      &.num {
+        text-align: center;
+        color: #666;
+
+        @include screen('mobile') {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .list {
+
+    & > ul,
+    ol {
+      list-style-type: none;
+      padding: 0;
+      border-top: 1px solid #ddd;
+
+      & > li {
+        padding: 0.75em 0 0.5em;
+        border-bottom: 1px solid #ddd;
+        position: relative; // outline: 1px solid blue;
+        display: flex;
+        gap: 20px;
+
+        @include screen('mobile') {
+          padding: 0.75em 0.5em 0.5em;
+          flex-direction: column;
+        }
+
+        &:nth-child(even) {
+          background: #f6f6f6;
+        }
+
+        ul {
+          margin: 10px 0;
+          padding: 0 0 0 20px;
+          list-style: disc;
+          color: #5b5b5b;
+        }
+
+        .pic {
+          max-width: 140px;
+          flex-shrink: 0;
+
+          @include screen('mobile') {
+            display: none;
+          }
+        }
+
+        .title {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          font-size: Rem(20);
+
+          @include screen('tablet') {
+            font-size: Rem(18);
+          }
+
+          a {
+            color: $colorSecondary;
+            transition: all 0.3s ease;
+
+            &:hover {
+              color: $colorPrimary;
+            }
+          }
+        }
+
+        .description {
+          margin: 0;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          font-size: Rem(16);
+        }
+
+        .btnBox {
+          flex-shrink: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          @include screen('mobile') {
+            flex-direction: row;
+          }
+
+          button {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            font-size: Rem(14);
+            display: flex;
+            align-items: center;
+            padding: 5px 10px;
+            background: rgba(63, 47, 26, 0.7);
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            color: #fff;
+
+            @include screen('mobile') {
+              flex-grow: 1;
+            }
+
+            img {
+              width: 20px;
+              height: 20px;
+              filter: invert(0) brightness(1000);
+              transition: all 0.3s ease;
+              opacity: .8;
+              display: block;
+              margin: 0 5px 0 0;
+            }
+
+            &:hover {
+              background: $colorPrimary;
+
+              img {
+                opacity: 1;
+              }
+            }
+
+            &.delete {
+              background: #cd0000;
+              transition: all 0.3s ease;
+
+              img {
+                width: 15px;
+                opacity: 1;
+              }
+
+              &:hover {
+                background: #9b0101;
+              }
+            }
+          }
+        }
+
+        .tag {
+          margin-left: 2em;
+        }
+
+        & > a {
+          display: block;
+          padding-left: 2em;
+          position: relative;
+          line-height: 1.45em;
+          font-weight: bold;
+          color: $colorWord;
+
+          &:hover {
+            color: $aHover;
+          }
+
+          .num {
+            width: 1.5em;
+            text-align: right;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &:after {
+              content: '.';
+              display: inline-block;
+            }
+          }
+        }
+
+        span.dept {
+          display: inline-block;
+          font-size: 0.938em;
+          font-weight: normal;
+
+          @include screen('mobile') {
+            display: block;
+          }
+        }
+
+        time {
+          display: block;
+          color: #aaa;
+          font-size: 0.938em;
+          font-weight: normal;
+        }
+      }
+    }
+
+    &.grid {
+
+      & > ul,
+      ol {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px 0 0;
+
+        & > li {
+          padding: 0;
+          background: none;
+          flex-direction: column;
+          width: calc((100% - 20px * 3)/4);
+          border: none;
+          gap: 5px;
+
+          &:hover {
+            .title {
+              a {
+                color: $colorPrimary;
+              }
+            }
+          }
+
+          .pic {
+            max-width: 100%;
+          }
+
+          .title {
+            font-size: Rem(18);
+          }
+
+          .description,
+          ul,
+          .btnBox {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .num {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: Rem(40);
+    font-weight: 900;
+    font-style: italic;
+    color: #000;
+    opacity: .2;
+  }
+}
+
+.lp {
+  table {
+    td {
+      a {
+        @include aSetting($colorWord);
+      }
+
+      &.date {
+        text-align: center;
+        color: #666;
+
+        @include screen('mobile') {
+          text-align: left;
+        }
+      }
+
+      &.num {
+        text-align: center;
+        color: #666;
+
+        @include screen('mobile') {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .list {
+
+    & > ul,
+    ol {
+      list-style-type: none;
+      padding: 0;
+      border-top: 2px solid $colorPrimary;
+
+      & > li {
+        padding: 0.75em 0 0.5em;
+        border-bottom: 1px solid #ddd;
+        position: relative; // outline: 1px solid blue;
+
+        .tag {
+          margin-left: 2em;
+        }
+
+        & > a {
+          display: block;
+          padding-left: 2em;
+          position: relative;
+          line-height: 1.45em;
+          font-weight: bold;
+          color: $colorWord;
+
+          &:hover {
+            color: $aHover;
+          }
+
+          .num {
+            width: 1.5em;
+            text-align: right;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &:after {
+              content: '.';
+              display: inline-block;
+            }
+          }
+        }
+
+        span.dept {
+          display: inline-block;
+          font-size: 0.938em;
+          font-weight: normal;
+
+          @include screen('mobile') {
+            display: block;
+          }
+        }
+
+        time {
+          display: block;
+          color: #aaa;
+          font-size: 0.938em;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
+
+.searchPageBox {
+  background: #f1f1f1;
+  padding: 20px;
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+
+  .box {
+    flex-grow: 1;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    p {
+      margin: 0;
+    }
+
+    select {
+      margin: 0;
+      padding: 0.4em 24px 0.4em 0.5em;
+    }
+  }
+}
+
+
+.storage {
+  table {
+    margin-bottom: 30px;
+
+    td {
+      &:nth-child(1) {
+        width: 50px;
+        text-align: center;
+      }
+
+      a {
+        color: $colorWord;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $colorPrimary;
+        }
+      }
+
+      .del {
+        width: 30px;
+        height: 30px;
+        display: block;
+        position: relative;
+        line-height: 1;
+        text-align: center;
+        padding: 0;
+        background: none;
+        transition: all 0.3s ease;
+        border: none;
+
+        @include screen('mobile') {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          background: $colorSecondary;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 0;
+          top: 0;
+          bottom: 0%;
+          right: 0;
+          z-index: 0;
+          background: $colorPrimary;
+          transition: all 0.3s ease;
+        }
+
+        &::after {
+          content: "x";
+          font-weight: 900;
+          line-height: 0;
+          font-size: 24px;
+          height: 15px;
+          color: $colorPrimary;
+          line-height: 0.5;
+          position: absolute;
+          top: 8px;
+          left: 9px;
+          transition: all 0.3s ease;
+
+          @include screen('mobile') {
+            content: "刪除";
+            line-height: 1;
+            color: #fff;
+            font-size: Rem(14);
+            position: relative;
+            top: auto;
+            left: auto;
+          }
+        }
+
+        &:hover {
+          @include screen('mobileMin') {
+            &::after {
+              color: red;
+            }
+          }
+
+          @include screen('mobile') {
+            background: $colorPrimary;
+          }
+        }
+      }
+    }
+  }
+
+  .control {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 5px;
+
+    select {
+      width: auto;
+      margin: 0;
+      padding: 0.4em 24px 0.4em 0.5em;
+    }
+
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      font-size: Rem(14);
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      background: rgba(63, 47, 26, 0.7);
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      color: #fff;
+
+
+      &:hover {
+        background: $colorPrimary;
+
+        img {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

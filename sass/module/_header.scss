@@ -1,0 +1,381 @@
+// mobile btn for extend
+// menu
+
+@mixin mobileCtrlBtn {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 0px;
+  display: none;
+  font-size: 0em;
+  padding: 15px;
+  margin: 0;
+  min-width: auto;
+  min-height: auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  z-index: 100;
+
+  @include screen('tablet') {
+    display: block;
+  }
+}
+
+.sidebarCtrlBtn {
+  display: none;
+  left: 0px;
+  @include mobileCtrlBtn;
+
+  &::before {
+    position: absolute;
+    content: '';
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 2px;
+    background: $colorPrimary;
+    box-shadow: $colorPrimary 0 6px 0 0, $colorPrimary 0 -6px 0 0;
+    transition: 0.2s linear;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: $colorPrimary;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.2s linear;
+  }
+
+  // &:hover {
+  //   &::before {
+  //     transform: translate(-50%, -50%) rotate(45deg);
+  //     box-shadow: none;
+  //   }
+  //   &::after {
+  //     opacity: 1;
+  //     transform: translate(-50%, -50%) rotate(-45deg);
+  //   }
+  // }
+}
+
+// search
+.searchCtrlBtn {
+  display: none;
+  right: 0px;
+  font-size: 0em;
+  z-index: 9;
+  @include mobileCtrlBtn;
+
+  &:before {
+    width: 40px;
+    height: 40px;
+    background: url(../images/basic/icon_search.svg) no-repeat center center;
+    background-size: 28px;
+    opacity: 0.6;
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: block;
+  }
+}
+
+//header
+.header {
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  transition: 0.3s ease-out;
+  // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0) 100%);
+  margin-bottom: 60px;
+
+  @include screen('tablet') {
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  // &:before {
+  //   position: absolute;
+  //   content: '';
+  //   width: 100%;
+  //   height: 100%;
+  //   top: 0;
+  //   left: 0;
+  //   background: #fff;
+  //   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  //   pointer-events: none;
+  //   z-index: -1;
+
+  //   @include screen('mobile') {
+  //     height: 60px;
+  //   }
+  // }
+
+  & > .container {
+    max-width: $containerMax;
+    overflow: visible;
+    position: relative;
+
+    @include screen('mobile') {
+      padding: 0;
+    }
+  }
+
+  h1 {
+    float: left;
+    width: 300px;
+    height: 75px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    a {
+      display: inline-block;
+
+    }
+
+    img {
+      display: block;
+      max-width: 300px;
+      max-height: 75px;
+    }
+  }
+
+  // 導覽列
+  .navigation {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 55;
+    align-items: center;
+
+    @include screen('tablet') {
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
+
+
+    .navList {
+      // flex: 1 1 auto;
+      margin: 1em 1em 1em 6.5%;
+
+      @include screen('tablet') {
+        display: none;
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+        font-size: 0.875em;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      li {
+        margin-right: 10px;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        & + li {
+          &::before {
+            content: '/';
+            margin-right: 10px;
+            color: #fff;
+          }
+        }
+
+        a {
+          font-size: Rem(14);
+          display: block;
+          padding: 0 0.5em;
+          text-decoration: none;
+          color: #fff;
+          transition: all 0.3s ease;
+
+          &:hover {
+            filter: brightness(1.5);
+            color: $colorPrimary;
+          }
+        }
+      }
+    }
+
+    //右邊區塊
+    .submenuBox {
+      display: flex;
+      align-items: center;
+      // padding: 15px;
+      position: relative;
+
+
+      & > div {
+        position: relative;
+
+        + div {
+          border-left: 1px rgba(255, 255, 255, 0.3) solid;
+        }
+      }
+
+      a {
+        color: transparent;
+        width: 70px;
+        height: 70px;
+        position: relative;
+        background: none;
+        padding: 0;
+        margin: 0;
+        border: none;
+        z-index: 90;
+        display: block;
+        transition: all 0.3s ease;
+
+        @include screen('tabletMin') {
+          background: rgba(0, 0, 0, 0.6);
+        }
+
+        @include screen('tablet') {
+          width: 45px;
+          height: 60px;
+        }
+
+        &::before {
+          content: '';
+          width: 100%;
+          height: auto;
+          position: absolute;
+          inset: 0;
+          z-index: 2;
+          display: block;
+          mask: url('../images/icon/icon_search2.svg') center no-repeat;
+          mask-size: 40%;
+          background: #fff;
+
+          @include screen('tablet') {
+            background: #000;
+            mask-size: 50% !important;
+          }
+        }
+
+        &:hover {
+          @include screen('tabletMin') {
+            filter: brightness(1.5);
+            background: rgba(22, 137, 95, .5);
+          }
+        }
+      }
+
+      .temporaryBtn {
+        position: relative;
+
+        a::before {
+          mask: url('../images/icon/icon_temporary.svg') center no-repeat;
+          mask-size: 40%;
+        }
+
+        span {
+          font-size: Rem(14);
+          color: #fff;
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(calc(-50% + 12px), calc(-50% - 12px));
+          padding: 2px 5px;
+          line-height: 1;
+          border-radius: 20px;
+          background: #c10000;
+          z-index: 9;
+        }
+      }
+
+      .memberBtn {
+        a::before {
+          mask: url('../images/icon/icon_member.svg') center no-repeat;
+          mask-size: 40%;
+        }
+      }
+    }
+  }
+
+  .memberBox {
+    position: absolute;
+    display: none;
+    right: 0;
+    top: 70px;
+
+    @include screen('tablet') {
+      top: 60px;
+    }
+
+    ul {
+      margin: 0;
+      list-style: none;
+      padding: 0;
+      background: rgba(0, 0, 0, 0.6);
+
+      a {
+        display: block;
+        padding: 10px 20px;
+        text-align: center;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.header.typeB {
+  h1 {
+    position: absolute;
+    top: 20px;
+    z-index: 50;
+
+    @include screen('tablet') {
+      position: relative;
+      top: auto;
+      float: none;
+      padding: 2px 60px;
+      width: 100%;
+      height: 60px;
+    }
+
+    a {
+      @include screen('tablet') {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        p {
+          margin: 3px 0 0;
+          font-size: Rem(24);
+          color: #000;
+        }
+
+        img {
+          width: auto;
+          height: auto;
+          max-height: 54px;
+          margin: 0;
+          transform: scale(0.8);
+        }
+      }
+    }
+  }
+}

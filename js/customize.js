@@ -306,7 +306,7 @@ circle('#picBox2', path3, 3, path1, 3, path2, 3, path4, 3);
     img.setAttribute('src', mpTabButton[0].dataset.pic);
     mpTabButton.forEach((item) => {
       item.addEventListener('click', (e) => {
-        let picSrc = e.target.dataset.pic;
+        let picSrc = item.dataset.pic;
         img.classList.add('change');
         setTimeout(() => {
           img.setAttribute('src', picSrc);

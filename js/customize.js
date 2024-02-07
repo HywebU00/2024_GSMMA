@@ -61,6 +61,9 @@ window.addEventListener('load', () => {
     },
     breakpoints: {
       100: {
+        slidesPerView: 1,
+      },
+      500: {
         slidesPerView: 2,
       },
       767: {

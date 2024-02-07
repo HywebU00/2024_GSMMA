@@ -5099,12 +5099,14 @@ img {
     align-self: flex-start;
     text-align: right;
     padding: 0.3em 1em;
+    font-weight: bold;
   }
   @media screen and (max-width: 767px) {
     .flexForm .formTitle {
       max-width: calc(100% - 0.6em);
       flex-basis: calc(100% - 0.6em);
       margin: 0 0.3em;
+      text-align: left;
       position: relative;
       min-height: 1px;
       padding-left: 0;
@@ -6587,6 +6589,11 @@ img {
     display: flex;
     padding: 10px;
   }
+  @media screen and (max-width: 767px) {
+    .lpInfoBox .list {
+      flex-direction: column;
+    }
+  }
   .lpInfoBox .list + .list {
     border-top: 1px solid #d5d5d5;
   }
@@ -6595,10 +6602,15 @@ img {
     font-weight: bold;
     margin: 0 15px 0 0;
     width: 100px;
-    text-align: right;
+  }
+  @media screen and (min-width: 767px) {
+    .lpInfoBox .list .label {
+      text-align: right;
+    }
   }
   .lpInfoBox .list p {
     margin: 0;
+    color: #444;
   }
   .lpPublications .control {
     white-space: nowrap;
@@ -6894,9 +6906,11 @@ img {
   .lpPublications .list.grid ol > li .title {
     font-size: 1.125rem;
   }
+  .lpPublications .list.grid > ul > li .num,
   .lpPublications .list.grid > ul > li .description,
   .lpPublications .list.grid > ul > li ul,
   .lpPublications .list.grid > ul > li .btnBox,
+  .lpPublications .list.grid ol > li .num,
   .lpPublications .list.grid ol > li .description,
   .lpPublications .list.grid ol > li ul,
   .lpPublications .list.grid ol > li .btnBox {
@@ -6911,6 +6925,11 @@ img {
     font-style: italic;
     color: #000;
     opacity: 0.2;
+  }
+  @media screen and (max-width: 767px) {
+    .lpPublications .num {
+      display: none;
+    }
   }
   .lp table td a {
     text-decoration: none;
@@ -7764,6 +7783,15 @@ img {
     align-items: center;
     vertical-align: middle;
   }
+  @media screen and (max-width: 767px) {
+    .pagination .total {
+      flex-direction: column;
+    }
+  }
+  .pagination .total .box {
+    display: flex;
+    align-items: center;
+  }
   .pagination .total select {
     margin: 0px 0.5em;
   }
@@ -8274,6 +8302,11 @@ img {
   @media screen and (max-width: 991px) {
     .innerPage .centerBlock {
       margin: 100px 30px 50px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .innerPage .centerBlock {
+      margin: 100px 20px 50px;
     }
   }
   .innerPage .leftBlock {
@@ -9812,20 +9845,22 @@ img {
     line-height: 1.25em;
     margin: 0.5em 0;
   }
-  .cpPublications .topInfo {
-    display: flex;
-    gap: 20px;
+  @media screen and (min-width: 767px) {
+    .cpPublications .topInfo {
+      display: flex;
+      gap: 20px;
+    }
+  }
+  .cpPublications .topInfo .picBox {
+    max-width: 210px;
+    margin: 0 auto;
+    margin-bottom: 30px;
   }
   .cpPublications .topInfo .btnBox {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: 5px;
-  }
-  @media screen and (max-width: 767px) {
-    .cpPublications .topInfo .btnBox {
-      flex-direction: row;
-    }
   }
   .cpPublications .topInfo .btnBox button {
     background: none;
@@ -9863,9 +9898,14 @@ img {
     opacity: 1;
   }
   .cpPublications .cpInfoBox .list {
-    display: flex;
-    padding: 4px;
+    padding: 10px 4px;
     font-size: 1rem;
+  }
+  @media screen and (min-width: 767px) {
+    .cpPublications .cpInfoBox .list {
+      display: flex;
+      padding: 4px;
+    }
   }
   .cpPublications .cpInfoBox .list + .list {
     border-top: 1px solid #d5d5d5;
@@ -9875,7 +9915,12 @@ img {
     font-weight: bold;
     margin: 0 15px 0 0;
     width: 100px;
-    text-align: right;
+  }
+  @media screen and (min-width: 767px) {
+    .cpPublications .cpInfoBox .list .label {
+      text-align: right;
+      margin-bottom: 5px;
+    }
   }
   .cpPublications .cpInfoBox .list p {
     margin: 0;
@@ -9887,9 +9932,19 @@ img {
     padding-bottom: 10px;
     margin: 30px 0 10px;
   }
+  @media screen and (max-width: 767px) {
+    .cpPublications .titleBox {
+      flex-direction: column;
+    }
+  }
   .cpPublications .titleBox .button {
     display: flex;
     gap: 10px;
+  }
+  @media screen and (max-width: 767px) {
+    .cpPublications .titleBox .button {
+      margin-top: 10px;
+    }
   }
   .cpPublications .titleBox .button a {
     background: none;
@@ -9928,6 +9983,16 @@ img {
   }
   .cpPublications .listBox .item {
     width: calc((100% - 30px) / 4);
+  }
+  @media screen and (max-width: 767px) {
+    .cpPublications .listBox .item {
+      width: calc((100% - 20px) / 3);
+    }
+  }
+  @media screen and (max-width: 575px) {
+    .cpPublications .listBox .item {
+      width: calc((100% - 10px) / 2);
+    }
   }
   .cpPublications .listBox .item a {
     display: block;

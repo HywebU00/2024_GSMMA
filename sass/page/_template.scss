@@ -149,6 +149,10 @@ body {
     @include screen('tablet') {
       margin: 100px 30px 50px;
     }
+
+    @include screen('mobile') {
+      margin: 100px 20px 50px;
+    }
   }
 
   .leftBlock {

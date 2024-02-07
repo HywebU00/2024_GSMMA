@@ -13,6 +13,10 @@
     display: flex;
     padding: 10px;
 
+    @include screen('mobile') {
+      flex-direction: column;
+    }
+
     & + .list {
       border-top: 1px solid #d5d5d5;
     }
@@ -22,11 +26,15 @@
       font-weight: bold;
       margin: 0 15px 0 0;
       width: 100px;
-      text-align: right;
+
+      @include screen('mobileMin') {
+        text-align: right;
+      }
     }
 
     p {
       margin: 0;
+      color: #444;
     }
   }
 }
@@ -335,6 +343,7 @@
             font-size: Rem(18);
           }
 
+          .num,
           .description,
           ul,
           .btnBox {
@@ -354,6 +363,10 @@
     font-style: italic;
     color: #000;
     opacity: .2;
+
+    @include screen('mobile') {
+      display: none;
+    }
   }
 }
 

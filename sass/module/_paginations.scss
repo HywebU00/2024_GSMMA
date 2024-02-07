@@ -145,6 +145,15 @@
     align-items: center;
     vertical-align: middle;
 
+    @include screen('mobile') {
+      flex-direction: column;
+    }
+
+    .box {
+      display: flex;
+      align-items: center;
+    }
+
     select {
       margin: 0px 0.5em;
 

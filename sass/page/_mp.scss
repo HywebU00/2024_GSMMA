@@ -16,7 +16,15 @@
     }
 
     & > div {
-      padding: 0 60px;
+      padding: 0 80px;
+
+      @include screen('tablet') {
+        padding: 0 60px;
+      }
+
+      @include screen('xsMobile') {
+        padding: 100px 20px 60px;
+      }
     }
 
     .container {
@@ -31,12 +39,12 @@
       margin-bottom: 50px;
 
       @include screen('tablet') {
-        padding: 100px 0 0;
+        padding: 100px 20px 0;
         background-position: 50% 0;
+      }
 
-        img {
-          filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
-        }
+      img {
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 1));
       }
     }
 
@@ -245,6 +253,10 @@
         @media screen and (max-width: 991px) {
           padding: 60px 80px 60px;
         }
+
+        @include screen('xsMobile') {
+          padding: 100px 20px 60px;
+        }
       }
 
       .indexMore {
@@ -275,6 +287,17 @@
           width: 100px;
         }
 
+        @include screen('xsMobile') {
+          width: 100%;
+          height: 70px;
+          position: absolute;
+          left: 0;
+
+          br {
+            display: none;
+          }
+        }
+
         &::after {
           display: none;
         }
@@ -292,7 +315,7 @@
       }
 
       .pic {
-        max-width: 148px;
+        max-width: 200px;
         border: #ccc 1px solid;
         line-height: 0;
         display: flex;
@@ -357,6 +380,7 @@
     }
 
     .theme {
+      padding-top: 0;
       margin-bottom: -2%;
 
 
@@ -464,7 +488,7 @@
 
 
           .picBox {
-            width: 52%;
+            width: 40%;
             position: relative;
             isolation: isolate;
 
@@ -582,6 +606,10 @@
         @include screen('mobile') {
           padding: 40px 80px 60px 40px;
         }
+
+        @include screen('xsMobile') {
+          padding: 100px 40px 60px;
+        }
       }
 
       .indexMore {
@@ -610,6 +638,17 @@
         @include screen('tablet') {
           font-size: Rem(22);
           width: 100px;
+        }
+
+        @include screen('xsMobile') {
+          width: 100%;
+          height: 70px;
+          position: absolute;
+          right: 0;
+
+          br {
+            display: none;
+          }
         }
 
         &::after {
@@ -664,6 +703,10 @@
       padding-bottom: 20%;
       position: relative;
 
+      @include screen('xsMobile') {
+        padding: 150px 60px;
+      }
+
 
       &:before {
         content: '';
@@ -695,15 +738,18 @@
         }
       }
 
-
+      .swiper-wrapper {
+        align-items: stretch;
+      }
 
       .swiper-slide {
-        padding: 10px 0;
-        align-self: stretch;
+        height: auto !important;
 
         a {
           display: block;
           padding: 30px;
+          height: calc(100% - 20px);
+          margin: 10px 0;
           position: relative;
           isolation: isolate;
 
@@ -776,23 +822,16 @@
         position: absolute;
         bottom: 0;
         left: 50%;
-        transform: translate(-50%, -150%);
+        transform: translateX(-50%);
         white-space: nowrap;
-
-        @include screen('tablet') {
-          transform: translate(-50%, -80%);
-        }
-
-        @include screen('mobile') {
-          transform: translate(-50%, 0%);
-        }
       }
 
       .box {
         display: flex;
         margin-right: -15%;
-        justify-content: flex-end;
-        padding-bottom: 50px;
+        align-items: flex-start;
+        justify-content: center;
+        padding-bottom: 80px;
 
         @include screen('tablet') {
           margin: 0 0 0 30px;
@@ -806,7 +845,7 @@
       }
 
       .picBox {
-        width: 52%;
+        width: 40%;
         position: relative;
         isolation: isolate;
         margin-top: -120px;

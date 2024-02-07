@@ -4143,7 +4143,7 @@ img {
     display: block;
   }
   .header {
-    position: relative;
+    position: sticky;
     width: 100%;
     top: 0;
     left: 0;
@@ -4162,7 +4162,7 @@ img {
     }
   }
   .header > .container {
-    max-width: 800px;
+    max-width: 1000px;
     overflow: visible;
     position: relative;
   }
@@ -4423,7 +4423,7 @@ img {
   }
   .mainMenu.sticky > ul {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   @media screen and (max-width: 767px) {
@@ -8190,7 +8190,7 @@ img {
     box-sizing: border-box;
   }
   .wrapper {
-    max-width: 1200px;
+    max-width: 1440px;
     width: 100%;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     margin: 0px auto;
@@ -8204,7 +8204,7 @@ img {
   }
   .container {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 1000px;
     position: relative;
     margin-right: auto;
     margin-left: auto;
@@ -8227,6 +8227,9 @@ img {
     z-index: -1;
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
             clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
+  }
+  .main .banner img {
+    min-height: 300px;
   }
   .main .sideBox {
     width: 230px;
@@ -8293,7 +8296,7 @@ img {
   }
   .innerPage .centerBlock {
     margin: 0 60px;
-    padding: 20px 20px 40px;
+    padding: 40px;
     background: #fff;
     flex: none;
     flex-basis: 100%;
@@ -8306,6 +8309,7 @@ img {
   }
   @media screen and (max-width: 767px) {
     .innerPage .centerBlock {
+      padding: 20px 20px 40px;
       margin: 100px 20px 50px;
     }
   }
@@ -9004,7 +9008,17 @@ img {
     padding-bottom: 5%;
   }
   .indexPage section > div {
-    padding: 0 60px;
+    padding: 0 80px;
+  }
+  @media screen and (max-width: 991px) {
+    .indexPage section > div {
+      padding: 0 60px;
+    }
+  }
+  @media screen and (max-width: 575px) {
+    .indexPage section > div {
+      padding: 100px 20px 60px;
+    }
   }
   .indexPage section .container {
     padding: 0;
@@ -9017,12 +9031,12 @@ img {
   }
   @media screen and (max-width: 991px) {
     .indexPage .contentBox .pageTitle {
-      padding: 100px 0 0;
+      padding: 100px 20px 0;
       background-position: 50% 0;
     }
-    .indexPage .contentBox .pageTitle img {
-      filter: drop-shadow(0 0 10px rgb(255, 255, 255));
-    }
+  }
+  .indexPage .contentBox .pageTitle img {
+    filter: drop-shadow(0 0 5px rgb(255, 255, 255));
   }
   .indexPage .contentBox .description {
     color: #222;
@@ -9209,6 +9223,11 @@ img {
       padding: 60px 80px 60px;
     }
   }
+  @media screen and (max-width: 575px) {
+    .indexPage .contentBox .news .container {
+      padding: 100px 20px 60px;
+    }
+  }
   .indexPage .contentBox .news .indexMore {
     position: absolute;
     bottom: 0;
@@ -9237,6 +9256,17 @@ img {
       width: 100px;
     }
   }
+  @media screen and (max-width: 575px) {
+    .indexPage .contentBox .news .titleBox {
+      width: 100%;
+      height: 70px;
+      position: absolute;
+      left: 0;
+    }
+    .indexPage .contentBox .news .titleBox br {
+      display: none;
+    }
+  }
   .indexPage .contentBox .news .titleBox::after {
     display: none;
   }
@@ -9251,7 +9281,7 @@ img {
     background: #96bb16;
   }
   .indexPage .contentBox .news .pic {
-    max-width: 148px;
+    max-width: 200px;
     border: #ccc 1px solid;
     line-height: 0;
     display: flex;
@@ -9308,6 +9338,7 @@ img {
     margin: 0 auto 20px;
   }
   .indexPage .contentBox .theme {
+    padding-top: 0;
     margin-bottom: -2%;
   }
   .indexPage .contentBox .theme .tabSet {
@@ -9407,7 +9438,7 @@ img {
     }
   }
   .indexPage .contentBox .theme .tabSet .box .picBox {
-    width: 52%;
+    width: 40%;
     position: relative;
     isolation: isolate;
   }
@@ -9513,6 +9544,11 @@ img {
       padding: 40px 80px 60px 40px;
     }
   }
+  @media screen and (max-width: 575px) {
+    .indexPage .contentBox .goods .container {
+      padding: 100px 40px 60px;
+    }
+  }
   .indexPage .contentBox .goods .indexMore {
     position: absolute;
     bottom: 0;
@@ -9539,6 +9575,17 @@ img {
     .indexPage .contentBox .goods .titleBox {
       font-size: 1.375rem;
       width: 100px;
+    }
+  }
+  @media screen and (max-width: 575px) {
+    .indexPage .contentBox .goods .titleBox {
+      width: 100%;
+      height: 70px;
+      position: absolute;
+      right: 0;
+    }
+    .indexPage .contentBox .goods .titleBox br {
+      display: none;
     }
   }
   .indexPage .contentBox .goods .titleBox::after {
@@ -9585,6 +9632,11 @@ img {
     padding-bottom: 20%;
     position: relative;
   }
+  @media screen and (max-width: 575px) {
+    .indexPage .contentBox .ranking {
+      padding: 150px 60px;
+    }
+  }
   .indexPage .contentBox .ranking:before {
     content: "";
     position: absolute;
@@ -9610,13 +9662,17 @@ img {
   .indexPage .contentBox .ranking .swiperArrow:hover {
     background: rgba(22, 137, 95, 0.5);
   }
+  .indexPage .contentBox .ranking .swiper-wrapper {
+    align-items: stretch;
+  }
   .indexPage .contentBox .ranking .swiper-slide {
-    padding: 10px 0;
-    align-self: stretch;
+    height: auto !important;
   }
   .indexPage .contentBox .ranking .swiper-slide a {
     display: block;
     padding: 30px;
+    height: calc(100% - 20px);
+    margin: 10px 0;
     position: relative;
     isolation: isolate;
   }
@@ -9677,24 +9733,15 @@ img {
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translate(-50%, -150%);
+    transform: translateX(-50%);
     white-space: nowrap;
-  }
-  @media screen and (max-width: 991px) {
-    .indexPage .contentBox .distribution .indexMore {
-      transform: translate(-50%, -80%);
-    }
-  }
-  @media screen and (max-width: 767px) {
-    .indexPage .contentBox .distribution .indexMore {
-      transform: translate(-50%, 0%);
-    }
   }
   .indexPage .contentBox .distribution .box {
     display: flex;
     margin-right: -15%;
-    justify-content: flex-end;
-    padding-bottom: 50px;
+    align-items: flex-start;
+    justify-content: center;
+    padding-bottom: 80px;
   }
   @media screen and (max-width: 991px) {
     .indexPage .contentBox .distribution .box {
@@ -9709,7 +9756,7 @@ img {
     }
   }
   .indexPage .contentBox .distribution .picBox {
-    width: 52%;
+    width: 40%;
     position: relative;
     isolation: isolate;
     margin-top: -120px;
@@ -9853,8 +9900,12 @@ img {
   }
   .cpPublications .topInfo .picBox {
     max-width: 210px;
-    margin: 0 auto;
     margin-bottom: 30px;
+  }
+  @media screen and (max-width: 767px) {
+    .cpPublications .topInfo .picBox {
+      margin: 0 auto;
+    }
   }
   .cpPublications .topInfo .btnBox {
     flex-shrink: 0;
@@ -9896,6 +9947,9 @@ img {
   }
   .cpPublications .topInfo .btnBox button:hover img {
     opacity: 1;
+  }
+  .cpPublications .cpInfoBox {
+    flex-grow: 1;
   }
   .cpPublications .cpInfoBox .list {
     padding: 10px 4px;

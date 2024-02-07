@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Demo styles -->
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Swiper -->
+    <div class="indexPage">
+      <div class="contentBox">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="#">
+                <div class="count">01</div>
+                <h3 class="title">南勢角（地質圖幅及說明書1/5,000）</h3>
+                <div class="pic"><img src="images/mp/mp_07.jpg" alt="" /></div>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#">
+                <div class="count">02</div>
+                <h3 class="title">臺灣地質圖 1:500,000（2000年）</h3>
+                <div class="pic"><img src="images/mp/mp_08.jpg" alt="" /></div>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#">
+                <div class="count">03</div>
+                <h3 class="title">甲仙（地質圖幅及說明書1/50,000）</h3>
+                <div class="pic"><img src="images/mp/mp_09.jpg" alt="" /></div>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#">
+                <div class="count">04</div>
+                <h3 class="title">甲仙（地質圖幅及說明書1/50,000）</h3>
+                <div class="pic"><img src="images/mp/mp_09.jpg" alt="" /></div>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper('.mySwiper', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    </script>
+  </body>
+</html>

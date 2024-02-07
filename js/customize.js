@@ -300,22 +300,22 @@ circle('#picBox2', path3, 3, path1, 3, path2, 3, path4, 3);
 (function () {
   const indexPage = document.querySelector('.indexPage');
   if (indexPage) {
-    let mpTabButton = document.querySelectorAll('.indexPage .tabSet .tabItems button');
-    let themePic = document.querySelector('.theme .picBox .pic');
-    let img = themePic.querySelector('img');
-    img.setAttribute('src', mpTabButton[0].dataset.pic);
-    mpTabButton.forEach((item) => {
-      item.addEventListener('click', (e) => {
-        let picSrc = item.dataset.pic;
-        img.classList.add('change');
-        setTimeout(() => {
-          img.setAttribute('src', picSrc);
-        }, 150);
-        setTimeout(() => {
-          img.classList.remove('change');
-        }, 300);
-      });
-    });
+    // let mpTabButton = document.querySelectorAll('.indexPage .tabSet .tabItems button');
+    // let themePic = document.querySelector('.theme .picBox .pic');
+    // let img = themePic.querySelector('img');
+    // img.setAttribute('src', mpTabButton[0].dataset.pic);
+    // mpTabButton.forEach((item) => {
+    //   item.addEventListener('click', (e) => {
+    //     let picSrc = item.dataset.pic;
+    //     img.classList.add('change');
+    //     setTimeout(() => {
+    //       img.setAttribute('src', picSrc);
+    //     }, 150);
+    //     setTimeout(() => {
+    //       img.classList.remove('change');
+    //     }, 300);
+    //   });
+    // });
 
     const memberBtn = document.querySelector('.memberBtn');
     const memberBox = document.querySelector('.memberBox');

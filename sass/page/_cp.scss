@@ -18,8 +18,11 @@ h2.title {
 
     .picBox {
       max-width: 210px;
-      margin: 0 auto;
       margin-bottom: 30px;
+
+      @include screen('mobile') {
+        margin: 0 auto;
+      }
     }
 
     .btnBox {
@@ -69,6 +72,8 @@ h2.title {
   }
 
   .cpInfoBox {
+    flex-grow: 1;
+
     .list {
       padding: 10px 4px;
       font-size: Rem(16);

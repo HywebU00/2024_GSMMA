@@ -6701,6 +6701,7 @@ img {
     position: relative;
     display: flex;
     gap: 20px;
+    justify-content: flex-start;
   }
   @media screen and (max-width: 767px) {
     .lpPublications .list > ul > li,
@@ -6769,6 +6770,8 @@ img {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding-bottom: 40px;
+    margin: 0 0 0 auto;
   }
   @media screen and (max-width: 767px) {
     .lpPublications .list > ul > li .btnBox,
@@ -9291,6 +9294,7 @@ img {
     justify-content: center;
     transition: all 0.3s ease;
     margin: 0 auto;
+    text-align: center !important;
   }
   .indexPage .contentBox .news .pic img {
     -o-object-fit: contain;

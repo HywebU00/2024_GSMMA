@@ -6922,6 +6922,12 @@ img {
     border: none;
     gap: 5px;
   }
+  @media screen and (max-width: 767px) {
+    .lpPublications .list.grid > ul > li,
+    .lpPublications .list.grid ol > li {
+      width: calc((100% - 20px) / 2);
+    }
+  }
   .lpPublications .list.grid > ul > li:hover .title a,
   .lpPublications .list.grid ol > li:hover .title a {
     color: #16895f;

@@ -351,6 +351,10 @@
           border: none;
           gap: 5px;
 
+          @include screen('mobile') {
+            width: calc((100% - 20px)/2);
+          }
+
           &:hover {
             .title {
               a {

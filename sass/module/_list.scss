@@ -147,7 +147,8 @@
 
         @include screen('mobile') {
           padding: 0.75em 0.5em 0.5em;
-          flex-direction: column;
+          // flex-direction: column;
+          flex-wrap: wrap;
         }
 
         &:nth-child(even) {
@@ -165,9 +166,9 @@
           max-width: 140px;
           flex-shrink: 0;
 
-          @include screen('mobile') {
-            display: none;
-          }
+          // @include screen('mobile') {
+          //   display: none;
+          // }
         }
 
         .title {
@@ -198,6 +199,10 @@
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           font-size: Rem(16);
+
+          @include screen('mobile') {
+            width: 100%;
+          }
         }
 
         .btnBox {
@@ -209,7 +214,10 @@
           margin: 0 0 0 auto;
 
           @include screen('mobile') {
+            width: 100%;
             flex-direction: row;
+            flex-wrap: wrap;
+            margin: 0 auto;
           }
 
           button {
@@ -220,6 +228,7 @@
             font-size: Rem(14);
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 5px 10px;
             background: rgba(63, 47, 26, 0.7);
             white-space: nowrap;

@@ -6707,7 +6707,7 @@ img {
     .lpPublications .list > ul > li,
     .lpPublications .list ol > li {
       padding: 0.75em 0.5em 0.5em;
-      flex-direction: column;
+      flex-wrap: wrap;
     }
   }
   .lpPublications .list > ul > li:nth-child(even),
@@ -6725,12 +6725,6 @@ img {
   .lpPublications .list ol > li .pic {
     max-width: 140px;
     flex-shrink: 0;
-  }
-  @media screen and (max-width: 767px) {
-    .lpPublications .list > ul > li .pic,
-    .lpPublications .list ol > li .pic {
-      display: none;
-    }
   }
   .lpPublications .list > ul > li .title,
   .lpPublications .list ol > li .title {
@@ -6764,6 +6758,12 @@ img {
     -webkit-box-orient: vertical;
     font-size: 1rem;
   }
+  @media screen and (max-width: 767px) {
+    .lpPublications .list > ul > li .description,
+    .lpPublications .list ol > li .description {
+      width: 100%;
+    }
+  }
   .lpPublications .list > ul > li .btnBox,
   .lpPublications .list ol > li .btnBox {
     flex-shrink: 0;
@@ -6776,7 +6776,10 @@ img {
   @media screen and (max-width: 767px) {
     .lpPublications .list > ul > li .btnBox,
     .lpPublications .list ol > li .btnBox {
+      width: 100%;
       flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 auto;
     }
   }
   .lpPublications .list > ul > li .btnBox button,
@@ -6788,6 +6791,7 @@ img {
     font-size: 0.875rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 5px 10px;
     background: rgba(63, 47, 26, 0.7);
     white-space: nowrap;

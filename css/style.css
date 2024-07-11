@@ -6694,6 +6694,14 @@ img {
     padding: 0;
     border-top: 1px solid #ddd;
   }
+  @media screen and (max-width: 767px) {
+    .lpPublications .list > ul,
+    .lpPublications .list ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
   .lpPublications .list > ul > li,
   .lpPublications .list ol > li {
     padding: 0.75em 0 0.5em;
@@ -6707,12 +6715,19 @@ img {
     .lpPublications .list > ul > li,
     .lpPublications .list ol > li {
       padding: 0.75em 0.5em 0.5em;
+      width: calc((100% - 10px) / 2);
       flex-wrap: wrap;
     }
   }
   .lpPublications .list > ul > li:nth-child(even),
   .lpPublications .list ol > li:nth-child(even) {
     background: #f6f6f6;
+  }
+  @media screen and (max-width: 767px) {
+    .lpPublications .list > ul > li:nth-child(even),
+    .lpPublications .list ol > li:nth-child(even) {
+      background: none;
+    }
   }
   .lpPublications .list > ul > li ul,
   .lpPublications .list ol > li ul {
@@ -6725,6 +6740,12 @@ img {
   .lpPublications .list ol > li .pic {
     max-width: 140px;
     flex-shrink: 0;
+  }
+  @media screen and (max-width: 767px) {
+    .lpPublications .list > ul > li .pic,
+    .lpPublications .list ol > li .pic {
+      margin: 0 auto;
+    }
   }
   .lpPublications .list > ul > li .title,
   .lpPublications .list ol > li .title {

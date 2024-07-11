@@ -137,6 +137,12 @@
       padding: 0;
       border-top: 1px solid #ddd;
 
+      @include screen('mobile') {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
       & > li {
         padding: 0.75em 0 0.5em;
         border-bottom: 1px solid #ddd;
@@ -147,12 +153,17 @@
 
         @include screen('mobile') {
           padding: 0.75em 0.5em 0.5em;
+          width: calc((100% - 10px) / 2);
           // flex-direction: column;
           flex-wrap: wrap;
         }
 
         &:nth-child(even) {
           background: #f6f6f6;
+
+          @include screen('mobile') {
+            background: none;
+          }
         }
 
         ul {
@@ -166,9 +177,10 @@
           max-width: 140px;
           flex-shrink: 0;
 
-          // @include screen('mobile') {
-          //   display: none;
-          // }
+          @include screen('mobile') {
+            // display: none;
+            margin: 0 auto;
+          }
         }
 
         .title {

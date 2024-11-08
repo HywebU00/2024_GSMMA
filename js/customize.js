@@ -402,9 +402,11 @@ circle('#picBox2', path3, 3, path1, 3, path2, 3, path4, 3);
       }
     }
 
+    let contentMap = mapBox.querySelectorAll('.cityBox .content');
     // 外島
-    islandsData.forEach((item) => {
+    islandsData.forEach((item, index) => {
       item.addEventListener('click', (e) => {
+        contentMap[index].classList.toggle('active2');
         mouseEvent(e, 'clickActive');
       });
       item.addEventListener('mouseover', (e) => {
@@ -416,8 +418,9 @@ circle('#picBox2', path3, 3, path1, 3, path2, 3, path4, 3);
     });
 
     //本島
-    mapBoxA.forEach((item) => {
+    mapBoxA.forEach((item, index) => {
       item.addEventListener('click', (e) => {
+        contentMap[index].classList.toggle('active2');
         mouseEvent(e, 'clickActive');
       });
       item.addEventListener('mouseover', (e) => {
@@ -432,7 +435,6 @@ circle('#picBox2', path3, 3, path1, 3, path2, 3, path4, 3);
     cityData.forEach((item, index) => {
       item.addEventListener('click', (e) => {
         let checkAll = mapBox.querySelectorAll('.clickActive').length;
-        let contentMap = mapBox.querySelectorAll('.cityBox .content');
 
         const other = Array.prototype.filter.call(contentMap, (child) => {
           return child !== contentMap[index];

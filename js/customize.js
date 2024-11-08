@@ -347,3 +347,135 @@ circle('#picBox2', path3, 3, path1, 3, path2, 3, path4, 3);
     });
   }
 })();
+
+(function () {
+  const mapBox = document.querySelector('.mapBox');
+  const mapBoxI = document.querySelectorAll('.mapBox g');
+  const mapBoxEl = document.querySelectorAll('.mapBox .mapInfo .el');
+  const mapBoxA = document.querySelectorAll('.mapBox svg a');
+  const islandsData = document.querySelectorAll('.islands .item');
+  const cityData = document.querySelectorAll('.cityBox .topBtnBox li');
+  if (mapBox) {
+    function mouseEvent(e, classInfo) {
+      e.preventDefault();
+      let className = e.target.parentNode.dataset.class;
+      let mainData = document.querySelector(`.mapBox svg [data-class*="${className}"]`);
+      let infoData = document.querySelector(`.mapBox .mapInfo [data-class*="${className}"]`);
+      let islandsInfoData = document.querySelector(`.mapBox .islands [data-class*="${className}"]`);
+      let cityInfoData = document.querySelector(`.mapBox .cityBox [data-class*="${className}"]`);
+      //main
+      if (infoData) {
+        const siblings = Array.prototype.filter.call(infoData.parentNode.children, (child) => {
+          return child !== infoData;
+        });
+        siblings.forEach((content) => content.classList.remove(classInfo));
+        infoData.classList.toggle(classInfo);
+
+        const siblingsMap = Array.prototype.filter.call(mainData.parentNode.children, (child) => {
+          return child !== mainData;
+        });
+        siblingsMap.forEach((content) => content.classList.remove(classInfo));
+        mainData.classList.toggle(classInfo);
+
+        islandsData.forEach((content) => content.classList.remove(classInfo)); //外島
+      }
+
+      //islands
+      if (islandsInfoData) {
+        const islandsOther = Array.prototype.filter.call(islandsInfoData.parentNode.children, (child) => {
+          return child !== islandsInfoData;
+        });
+        islandsOther.forEach((content) => content.classList.remove(classInfo));
+        islandsInfoData.classList.toggle(classInfo);
+
+        mapBoxI.forEach((content) => content.classList.remove(classInfo)); //本島
+        mapBoxEl.forEach((content) => content.classList.remove(classInfo)); //本島
+      }
+
+      //city
+      if (cityData) {
+        const cityOther = Array.prototype?.filter.call(cityInfoData.parentNode.children, (child) => {
+          return child !== cityInfoData;
+        });
+        cityOther.forEach((content) => content.classList.remove(classInfo));
+        cityInfoData.classList.toggle(classInfo);
+      }
+    }
+
+    // 外島
+    islandsData.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        mouseEvent(e, 'clickActive');
+      });
+      item.addEventListener('mouseover', (e) => {
+        mouseEvent(e, 'active');
+      });
+      item.addEventListener('mouseleave', (e) => {
+        mapBox.querySelectorAll('.active').forEach((content) => content.classList.remove('active'));
+      });
+    });
+
+    //本島
+    mapBoxA.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        mouseEvent(e, 'clickActive');
+      });
+      item.addEventListener('mouseover', (e) => {
+        mouseEvent(e, 'active');
+      });
+      item.addEventListener('mouseleave', (e) => {
+        mapBox.querySelectorAll('.active').forEach((content) => content.classList.remove('active'));
+      });
+    });
+
+    // 地圖-計畫現況-縣市
+    cityData.forEach((item, index) => {
+      item.addEventListener('click', (e) => {
+        let checkAll = mapBox.querySelectorAll('.clickActive').length;
+        let contentMap = mapBox.querySelectorAll('.cityBox .content');
+
+        const other = Array.prototype.filter.call(contentMap, (child) => {
+          return child !== contentMap[index];
+        });
+
+        other.forEach((content) => content.classList.remove('active2'));
+        contentMap[index].classList.toggle('active2');
+
+        if (index === 0 && checkAll <= 3) {
+          mapBoxI.forEach((content) => content.classList.add('clickActive'));
+          mapBoxEl.forEach((content) => content.classList.add('clickActive'));
+          cityData.forEach((content) => content.classList.add('clickActive'));
+          islandsData.forEach((content) => content.classList.add('clickActive'));
+        } else if (index === 0 && checkAll > 6) {
+          mapBoxI.forEach((content) => content.classList.remove('clickActive'));
+          mapBoxEl.forEach((content) => content.classList.remove('clickActive'));
+          cityData.forEach((content) => content.classList.remove('clickActive'));
+          islandsData.forEach((content) => content.classList.remove('clickActive'));
+        } else if (index > 0) {
+          mapBoxI.forEach((content) => content.classList.remove('clickActive'));
+          mapBoxEl.forEach((content) => content.classList.remove('clickActive'));
+          cityData.forEach((content) => content.classList.remove('clickActive'));
+          islandsData.forEach((content) => content.classList.remove('clickActive'));
+          mouseEvent(e, 'clickActive');
+        }
+      });
+      item.addEventListener('mouseover', (e) => {
+        index > 0 && mouseEvent(e, 'active');
+      });
+      item.addEventListener('mouseleave', (e) => {
+        mapBox.querySelectorAll('.active').forEach((content) => content.classList.remove('active'));
+      });
+    });
+
+    mapBox.addEventListener('mouseleave', (e) => {
+      mapBox.querySelectorAll('.active').forEach((content) => content.classList.remove('active'));
+    });
+  }
+
+  function checkData() {}
+  cityData.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      checkData();
+    });
+  });
+})();

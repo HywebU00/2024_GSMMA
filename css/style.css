@@ -8298,6 +8298,15 @@ img {
     color: #333333;
     font-weight: 800;
   }
+  .main .sideBox .twMap {
+    margin-bottom: 20px;
+  }
+  .main .sideBox .twMap a {
+    color: #3f2f1a;
+  }
+  .main .sideBox .twMap a:hover {
+    color: #16895f;
+  }
   .main .contentBox {
     min-height: 100vh;
     min-height: 100dvh;
@@ -8708,6 +8717,9 @@ img {
     transform: rotate(45deg);
     border-right: none;
     border-top: none;
+  }
+  .mobileSidebar .twMap {
+    display: none;
   }
   .menuOverlay {
     background: RGBA(0, 0, 0, 0.5);
@@ -10808,6 +10820,9 @@ img {
     .mapBox .mainIsland {
       display: none;
     }
+  }
+  .mapBox .mainIsland.lp3 {
+    width: 280px;
   }
   .mapBox .mainIsland svg {
     width: 100%;

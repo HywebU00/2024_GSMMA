@@ -80,6 +80,8 @@ body {
     position: absolute;
     top: 0;
     bottom: 0;
+    // height: 100vh;
+    // height: 100dvh;
     padding-bottom: 30px;
     z-index: 2;
     background: rgba(255, 255, 255, 0.7);
@@ -106,6 +108,18 @@ body {
         font-family: "Noto Serif TC", serif;
         color: #333333;
         font-weight: 800;
+      }
+    }
+
+    .twMap {
+      margin-bottom: 20px;
+
+      a {
+        color: $colorSecondary;
+
+        &:hover {
+          color: $colorPrimary;
+        }
       }
     }
   }

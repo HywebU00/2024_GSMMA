@@ -4514,6 +4514,7 @@ img {
     padding: 0.6em 1.2em 0.6em 1em;
     color: #3f2f1a;
     font-weight: 500;
+    position: relative;
   }
   .mainMenu ul li ul li a:hover, .mainMenu ul li ul li a:focus-visible {
     color: #16895f;
@@ -4528,24 +4529,30 @@ img {
   }
   .mainMenu ul li ul li.hasChild > ul {
     z-index: 999;
+    display: none;
   }
   .mainMenu ul li ul li.hasChild > a {
     padding-right: 2em;
     position: relative;
   }
+  .mainMenu ul li ul li.hasChild > a::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    display: block;
+    border: 2px solid #5c554c;
+    transform: rotate(135deg);
+    border-bottom: none;
+    border-left: none;
+    position: absolute;
+    right: 5px;
+    top: 28%;
+  }
   .mainMenu ul li ul li.hasChild > a:hover, .mainMenu ul li ul li.hasChild > a:focus-visible {
     color: #16895f;
   }
-  .mainMenu ul li ul li.hasChild > a:after {
-    content: "";
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    width: 6px;
-    height: 6px;
-    border: 2px solid #fff;
-    transform: rotate(45deg) translateY(-50%);
-    border-width: 2px 2px 0 0;
+  .mainMenu ul li ul li.hasChild > a:hover::after, .mainMenu ul li ul li.hasChild > a:focus-visible::after {
+    border-color: #16895f;
   }
   .mainMenu ul li ul ul {
     animation: none;
